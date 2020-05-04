@@ -4,10 +4,10 @@ var mysql = require('mysql');
 
 //connecting to db
 var pool = mysql.createPool({
-	host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-	user: "nicole",
-	password: "Class3027",
-	database: "ndl27"
+	host: "",
+	user: "",
+	password: "",
+	database: ""
 });
 
 // Set this to the region you upload the Lambda function to.
@@ -39,7 +39,7 @@ exports.handler = function(evt, context, callback) {
     connection.query(insertSQL, [values], function(error, results, fields) {
       connection.release();
       if(error) callback(error);
-      else context.succeed({location: 'http://localhost:3000/'});
+      else context.succeed({location: ''});
     });
 
 	});
