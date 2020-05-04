@@ -4,10 +4,10 @@ var mysql = require('mysql');
 
 //connecting to db
 var pool = mysql.createPool({
-	host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-	user: "nicole",
-	password: "Class3027",
-	database: "ndl27"
+	host: "",
+	user: "",
+	password: "",
+	database: ""
 });
 
 // Set this to the region you upload the Lambda function to.
@@ -32,15 +32,4 @@ exports.handler = function(evt, context, callback) {
       else context.succeed(results);
     });
   });
-/*
-    // Our field from the request.
-    const my_field = params['my-field'];
-
-    // Generate HTML.
-    const html = `<!DOCTYPE html><p>You said: ` + my_field + `</p>`;
-
-    // Return HTML as the result.
-    callback(null, html);
-
-*/
 };
