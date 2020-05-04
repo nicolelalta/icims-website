@@ -4,10 +4,10 @@ var mysql = require('mysql');
 
 //connecting to DB
 var pool = mysql.createPool({
-  host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-  user: "nicole",
-  password: "Class3027",
-  database: "ndl27"
+  host: "",
+  user: "",
+  password: "",
+  database: ""
 });
 
 AWS.config.region = 'us-east-1';
