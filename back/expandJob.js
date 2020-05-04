@@ -5,10 +5,10 @@ var mysql = require('mysql');
 
 //connecting to db
 var pool = mysql.createPool({
-	host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-	user: "nicole",
-	password: "Class3027",
-	database: "ndl27",
+	host: "",
+	user: "",
+	password: "",
+	database: "",
   multipleStatements: true
 });
 // Set this to the region you upload the Lambda function to.
