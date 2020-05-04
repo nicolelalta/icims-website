@@ -4,19 +4,13 @@ var mysql = require('mysql');
 
 //connecting to DB
 var pool = mysql.createPool({
-  host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-  user: "nicole",
-  password: "Class3027",
-  database: "ndl27",
+  host: "",
+  user: "",
+  password: "",
+  database: "",
   multipleStatements: true
 });
-// var accountArray = {};
-// var skillsArray = [];
-// var schoolArray = [];
-// const firstName = '';
-// const lastName = '';
-// const username = '';
-// const email = '';
+
 AWS.config.region = 'us-east-1';
 
 exports.handler = function(evt, context, callback) {
@@ -59,12 +53,6 @@ exports.handler = function(evt, context, callback) {
         });
         accountArray["type"] = skills;
         accountArray["school"] = education;
-        // var skill = {
-        //   type: skills
-        // };
-        // var educationTable = {
-        //   school: education
-        // };
 
         var response = [
           accountArray
