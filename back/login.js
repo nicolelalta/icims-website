@@ -6,10 +6,10 @@ var bodyParser = require('body-parser');
 
 //connecting to db
 var pool = mysql.createPool({
-	host: "icimsproject.c4hdae2hey0k.us-east-1.rds.amazonaws.com",
-	user: "nicole",
-	password: "Class3027",
-	database: "ndl27",
+	host: "",
+	user: "",
+	password: "",
+	database: "",
 	multipleStatements: true
 });
 
@@ -19,36 +19,13 @@ AWS.config.region = 'us-east-1';
 exports.handler = function(evt, context, callback) {
   //prevent timeout from waiting event loop
   context.callbackWaitsForEmptyEventLoop = false;
-/*
-	let responseBody = {
-		message: "hello",
-		key1: JSON.parse(JSON.stringify(evt))
-	};
-	const response = {
-		statusCode: 200,
-		headers: {"Access-Control-Allow-Origin": "*"},
-		body: JSON.stringify(responseBody)
-	};
-	context.succeed(response);
-*/
 
   pool.getConnection(function(err, connection) {
-    //parsing raw request body
 
 
 		const request = querystring.parse(evt.body);
 
-/*		const response = {
-			statusCode: 200,
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-				"Content-Type": "application/json"
-			},
-			body: request
-		};
 
-		context.succeed(response);
-*/
 		const userName = request.userName;
 		const password = request.password;
 
@@ -63,26 +40,9 @@ exports.handler = function(evt, context, callback) {
 				context.succeed(message);
 			}
 			if(results.length != 0) {
-				const response = {location: 'https://491final.s3.amazonaws.com/ViewJobsLargerNavBar.html'
-				};
+				const response = {location: ''};
 				context.succeed(response);
 			}
 		});
   });
-/*
-    // Our field from the request.
-    const my_field = params['my-field'];
-
-    // Generate HTML.
-    const html = `<!DOCTYPE html><p>You said: ` + my_field + `</p>`;
-
-    // Return HTML as the result.
-    callback(null, html);
-
-		**for loop used in order to take out firstName and lastName from results array**
-		for(const [key, value] of results) {
-			callback(null, `<!DOCTYPE html><p>` + JSON.stringify(key.firstName) + `: `+ JSON.stringify(key.lastName) + `<br> `+ JSON.stringify(value) + `</p></html>`);
-		}
-
-*/
 };
